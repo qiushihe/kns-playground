@@ -8,6 +8,13 @@ Download `k3d` CLI binary from: https://github.com/rancher/k3d/releases
 $ k3d create --workers 2
 ```
 
+## Create Cluster with 2 Workers and a Local Docker Volume
+
+```
+$ docker volume create --driver local local-volume
+$ k3d create --workers 2 --volume local-volume:/opt/local-path-storage
+```
+
 ## Launch k3d Shell
 
 The k3d shell have `KUBECONFIG` environment variable already set so there is no need to manually set them.
