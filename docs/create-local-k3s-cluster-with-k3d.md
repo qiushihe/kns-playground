@@ -2,7 +2,7 @@
 
 Download `k3d` CLI binary from: https://github.com/rancher/k3d/releases
 
-## Create cluster with 2 workers
+## Create Cluster with 2 Workers
 
 ```
 $ k3d create --workers 2

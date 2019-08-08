@@ -4,13 +4,13 @@
 
 Get Helm binary from: https://github.com/helm/helm/releases
 
-### Create service account for Tiller
+### Create Service Account for Tiller
 
 ```
 $ kubectl create serviceaccount tiller --namespace kube-system
 ```
 
-### Create cluster role binding for Tiller
+### Create Cluster Role Binding for Tiller
 
 ```
 $ kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
@@ -40,13 +40,13 @@ For more info see: https://github.com/kubernetes/dashboard
 $ helm install stable/kubernetes-dashboard --name dashboard --set fullnameOverride="kubernetes-dashboard" --namespace kube-system
 ```
 
-### Create cluster-admin role binding for Dashboard
+### Create Cluster-Admin Role Binding for Dashboard
 
 ```
 $ kubectl create clusterrolebinding dashboard-admin --namespace kube-system --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 ```
 
-### Get login token for Dashboard
+### Get Login Token for Dashboard
 
 ```
 $ kubectl describe secret $(kubectl get serviceaccount kubernetes-dashboard -o jsonpath="{.secrets[0].name}" --namespace kube-system) --namespace kube-system
