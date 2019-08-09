@@ -1,5 +1,4 @@
-# Taken from https://github.com/rancher/local-path-provisioner
-# ... and: https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
+# Taken from https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
 
 apiVersion: v1
 kind: Namespace
