@@ -20,23 +20,15 @@ grafana:
     accessModes: ["ReadWriteOnce"]
     size: 5Gi
 
-# Define persistent storage for Alertmanager (PVC)
-alertmanager:
-  alertmanagerSpec:
-    storage:
-      volumeClaimTemplate:
-        spec:
-          accessModes: ["ReadWriteOnce"]
-          storageClassName: local-path
-          resources:
-            requests:
-              storage: 5Gi
-
 # Change default node-exporter port
 prometheus-node-exporter:
   service:
     port: 30206
     targetPort: 30206
+
+# Disable AlertManager because Grafana can handle alerts.
+alertmanager:
+  enabled: false
 
 # Disable Etcd metrics
 kubeEtcd:

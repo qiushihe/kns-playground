@@ -15,7 +15,6 @@ $ helm install --namespace monitoring --name cluster-monitoring -f ./monitoring/
 This will install, among other things:
 
 * [Prometheus](https://prometheus.io)
-* [Alertmanager](https://prometheus.io/docs/alerting/alertmanager)
 * [Grafana](https://grafana.com)
 
 Verify pods are running:
@@ -42,15 +41,7 @@ Open URL: http://localhost:8000
 **Prometheus**
 
 ```
-$ kubectl port-forward -n monitoring svc/cluster-monitoring-pr-prometheus 9090:9090
+$ kubectl port-forward -n monitoring svc/cluster-monitoring-prometh-prometheus 9090:9090
 ```
 
 Open URL: http://localhost:9090
-
-**AlertManager**
-
-```
-$ kubectl port-forward -n monitoring svc/cluster-monitoring-pr-alertmanager 9093:9093
-```
-
-Open URL: http://localhost:9093
