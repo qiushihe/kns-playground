@@ -1,5 +1,7 @@
 # Setup Local Path Storage
 
+For more info, see: https://github.com/rancher/local-path-provisioner
+
 ## Create k3s Cluster with Local Volume
 
 Create a local docker volume:
