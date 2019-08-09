@@ -2,6 +2,10 @@
 
 For more info, see: https://www.digitalocean.com/community/tutorials/how-to-set-up-digitalocean-kubernetes-cluster-monitoring-with-helm-and-prometheus-operator
 
+## Prepare Custom Values
+
+Edit `./monitoring/custom-values.yaml` and update configurations as necessary.
+
 ## Install Prometheus Operator with Helm
 
 ```
