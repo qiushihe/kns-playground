@@ -17,7 +17,7 @@ $ k3d create --workers 2 --volume local-volume:/opt/local-path-storage
 ## Create Local Path Storage Provisioner
 
 ```
-kubectl create -f ./local-path-storage/provisioner.yml
+$ kubectl create -f ./local-path-storage/provisioner.yml
 ```
 
 ## Create and Verify Example PVC and Pod
