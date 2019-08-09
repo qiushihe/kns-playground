@@ -38,3 +38,17 @@ $ kubectl cluster-info
 ```
 
 ... ensure the output indicates that the cluster is the one running locally.
+
+## Clean Up
+
+Delete cluster:
+
+```
+$ k3d delete
+```
+
+Delete local volume:
+
+```
+$ docker volume rm local-volume
+```
