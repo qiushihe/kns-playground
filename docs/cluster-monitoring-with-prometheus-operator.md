@@ -14,9 +14,9 @@ $ helm install --namespace monitoring --name cluster-monitoring -f ./monitoring/
 
 This will install, among other things:
 
-* Prometheus
-* Grafana
-* Alertmanager
+* [Prometheus](https://prometheus.io)
+* [Alertmanager](https://prometheus.io/docs/alerting/alertmanager)
+* [Grafana](https://grafana.com)
 
 Verify pods are running:
 
