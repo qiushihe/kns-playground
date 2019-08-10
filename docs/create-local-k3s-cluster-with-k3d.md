@@ -28,8 +28,10 @@ $ k3d shell --shell bash
 **For Windows PowerShell**
 
 ```
-> PowerShell -NoExit -Command {[Environment]::SetEnvironmentVariable("KUBECONFIG", (k3d get-kubeconfig), "Process")}
+> PowerShell -NoExit -Command {function prompt {"($([regex]::Match($(k3d get-kubeconfig), '([^/]+)\/kubeconfig\.yaml$').captures.groups[1].value)) PS $($ExecutionContext.SessionState.Path.CurrentLocation)$('>' * ($nestedPromptLevel + 1)) "} [Environment]::SetEnvironmentVariable("KUBECONFIG", (k3d get-kubeconfig), "Process")}
 ```
+
+... this command will create a new PowerShell sub-shell session with `KUBECONFIG` environment variable already set to the correct value, and with PowerShell prompt text prepended with the local cluster name to avoid mistake ... because taking PowerShell seriously enough is plainly impossible for anyone to pull off.
 
 ## Verify Cluster Status
 
