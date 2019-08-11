@@ -1,10 +1,27 @@
+# Don't create any default rules in Prometheus
+# because we're using Grafana alert exclusively.
+defaultRules:
+  create: false
+
 prometheusOperator:
   # Create/cleanup CRD before/after (un)install
   createCustomResource: true
   cleanupCustomResourceBeforeInstall: true
   cleanupCustomResource: true
 
+  # Disable monitoring of kubelet
+  kubeletService:
+    enabled: false
+
+  # Disable monitoring prometheus operator itself
+  serviceMonitor:
+    selfMonitor: false
+
 prometheus:
+  # Disable monitoring prometheus itself
+  serviceMonitor:
+    selfMonitor: false
+
   prometheusSpec:
     retention: 7d
     scrapeInterval: 1m
@@ -21,6 +38,10 @@ prometheus:
               storage: 5Gi
 
 grafana:
+  # Disable monitoring grafana
+  serviceMonitor:
+    selfMonitor: false
+
   # Define persistent storage for Grafana (PVC)
   persistence:
     enabled: true
