@@ -42,6 +42,9 @@ grafana:
   serviceMonitor:
     selfMonitor: false
 
+  # Don't create default dashboards
+  defaultDashboardsEnabled: false
+
   # Define persistent storage for Grafana (PVC)
   persistence:
     enabled: true
