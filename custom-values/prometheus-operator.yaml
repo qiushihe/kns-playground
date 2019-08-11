@@ -1,0 +1,75 @@
+prometheusOperator:
+  # Create/cleanup CRD before/after (un)install
+  createCustomResource: true
+  cleanupCustomResourceBeforeInstall: true
+  cleanupCustomResource: true
+
+prometheus:
+  prometheusSpec:
+    retention: 7d
+    scrapeInterval: 1m
+    evaluationInterval: 1m
+
+    # Define persistent storage for Prometheus (PVC)
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          storageClassName: local-path
+          resources:
+            requests:
+              storage: 5Gi
+
+grafana:
+  # Define persistent storage for Grafana (PVC)
+  persistence:
+    enabled: true
+    storageClassName: local-path
+    accessModes: ["ReadWriteOnce"]
+    size: 5Gi
+
+prometheus-node-exporter:
+  # Change default node-exporter port
+  service:
+    port: 30206
+    targetPort: 30206
+
+alertmanager:
+  # Disable AlertManager because Grafana can handle alerts.
+  enabled: false
+
+kubeApiServer:
+  # Disable api-server metrics
+  enabled: false
+
+kubelet:
+  # Disable kubelet metrics
+  enabled: false
+
+kubeControllerManager:
+  # Disable controller metrics
+  enabled: false
+
+coreDns:
+  # Disable core-dns metrics
+  enabled: false
+
+kubeDns:
+  # Disable kube-dns metrics
+  enabled: false
+
+kubeEtcd:
+  # Disable etcd metrics
+  enabled: false
+
+kubeScheduler:
+  # Disable scheduler metrics
+  enabled: false
+
+kubeProxy:
+  # Disable proxy metrics
+  enabled: false
+
+kubeStateMetrics:
+  # Disable state metrics
+  enabled: false

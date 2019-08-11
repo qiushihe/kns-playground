@@ -9,10 +9,10 @@ Edit `./monitoring/custom-values.yaml` and update configurations as necessary.
 ## Install Prometheus Operator with Helm
 
 ```
-$ helm install --namespace monitoring --name cluster-monitoring -f ./monitoring/custom-values.yaml stable/prometheus-operator
+$ helm install --namespace monitoring --name prometheus-operator -f ./custom-values/prometheus-operator.yaml --set "grafana.adminPassword=q1w2e3" stable/prometheus-operator
 ```
 
-This will install, among other things:
+... this command may take a while to run and it will install, among other things:
 
 * [Prometheus](https://prometheus.io)
 * [Grafana](https://grafana.com)
@@ -20,7 +20,7 @@ This will install, among other things:
 Verify pods are running:
 
 ```
-$ kubectl --namespace monitoring get pods -l "release=cluster-monitoring"
+$ kubectl --namespace monitoring get pods -l "release=prometheus-operator"
 ```
 
 ### Access Services with Port Forwarding
@@ -28,7 +28,7 @@ $ kubectl --namespace monitoring get pods -l "release=cluster-monitoring"
 **Grafana**
 
 ```
-$ kubectl port-forward -n monitoring svc/cluster-monitoring-grafana 8000:80
+$ kubectl port-forward -n monitoring svc/prometheus-operator-grafana 8000:80
 ```
 
 Open URL: http://localhost:8000
@@ -36,12 +36,12 @@ Open URL: http://localhost:8000
 ... and login with:
 
 * Username: `admin`
-* Password: `[password configured in ./monitoring/custom-values.yaml]`
+* Password: `[password set in above step]`
 
 **Prometheus**
 
 ```
-$ kubectl port-forward -n monitoring svc/cluster-monitoring-prometh-prometheus 9090:9090
+$ kubectl port-forward -n monitoring svc/prometheus-operator-prometh-prometheus 9090:9090
 ```
 
 Open URL: http://localhost:9090
@@ -54,6 +54,12 @@ Add Loki chart repo to Helm:
 
 ```
 $ helm repo add loki https://grafana.github.io/loki/charts
+```
+
+... and update Helm charts:
+
+```
+$ helm repo update
 ```
 
 ### Install Loki
