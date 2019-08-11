@@ -41,7 +41,7 @@ Open URL: http://localhost:8000
 **Prometheus**
 
 ```
-$ kubectl port-forward -n monitoring svc/prometheus-operator-prometh-prometheus 9090:9090
+$ kubectl port-forward -n monitoring svc/prometheus-operator-prometheus 9090:9090
 ```
 
 Open URL: http://localhost:9090
