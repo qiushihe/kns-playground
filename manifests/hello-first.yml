@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-first
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: hello-first
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-first
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-first
+  template:
+    metadata:
+      labels:
+        app: hello-first
+    spec:
+      containers:
+      - name: hello-kubernetes
+        image: paulbouwer/hello-kubernetes:1.5
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MESSAGE
+          value: Hello from the first deployment!
