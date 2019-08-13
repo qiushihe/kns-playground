@@ -9,7 +9,7 @@ Edit `./monitoring/custom-values.yaml` and update configurations as necessary.
 ## Install Prometheus Operator with Helm
 
 ```
-$ helm install --namespace monitoring --name prometheus-operator -f ./custom-values/prometheus-operator.yaml --set "grafana.adminPassword=q1w2e3" stable/prometheus-operator
+$ helm install --namespace monitoring --name prometheus-operator -f ./custom-values/prometheus-operator.yaml stable/prometheus-operator
 ```
 
 ... this command may take a while to run and it will install, among other things:
@@ -32,11 +32,6 @@ $ kubectl port-forward -n monitoring svc/prometheus-operator-grafana 8000:80
 ```
 
 Open URL: http://localhost:8000
-
-... and login with:
-
-* Username: `admin`
-* Password: `[password set in above step]`
 
 **Prometheus**
 

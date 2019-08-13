@@ -45,18 +45,18 @@ grafana:
   # Don't create default dashboards
   defaultDashboardsEnabled: false
 
+  # Disable login
+  grafana.ini:
+    auth.anonymous:
+      enabled: true
+      org_role: Admin
+
   # Define persistent storage for Grafana (PVC)
   persistence:
     enabled: true
     storageClassName: local-path
     accessModes: ["ReadWriteOnce"]
     size: 5Gi
-
-prometheus-node-exporter:
-  # Change default node-exporter port
-  service:
-    port: 30206
-    targetPort: 30206
 
 alertmanager:
   # Disable AlertManager because Grafana can handle alerts.
