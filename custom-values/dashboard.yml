@@ -1,0 +1,11 @@
+fullnameOverride: kubernetes-dashboard
+
+enableSkipLogin: true
+enableInsecureLogin: true
+
+service:
+  externalPort: 80
+
+rbac:
+  create: true
+  clusterAdminRole: true

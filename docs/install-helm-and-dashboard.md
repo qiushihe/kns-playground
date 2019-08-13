@@ -37,20 +37,18 @@ For more info see: https://github.com/kubernetes/dashboard
 ### Install Dashboard via Helm
 
 ```
-$ helm install stable/kubernetes-dashboard --name dashboard --set fullnameOverride="kubernetes-dashboard" --namespace kube-system
+$ helm install --namespace kube-system --name dashboard -f ./custom-values/dashboard.yml stable/kubernetes-dashboard
 ```
 
-### Create Cluster-Admin Role Binding for Dashboard
+### Access Dashboard with Port Forwarding
 
 ```
-$ kubectl create clusterrolebinding dashboard-admin --namespace kube-system --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+$ kubectl port-forward -n kube-system svc/kubernetes-dashboard 8888:80
 ```
 
-### Get Login Token for Dashboard
+Open URL: http://localhost:8888
 
-```
-$ kubectl describe secret $(kubectl get serviceaccount kubernetes-dashboard -o jsonpath="{.secrets[0].name}" --namespace kube-system) --namespace kube-system
-```
+... and click on "Skip" to skip login.
 
 ### Access Dashboard via Proxy
 
@@ -58,8 +56,13 @@ $ kubectl describe secret $(kubectl get serviceaccount kubernetes-dashboard -o j
 $ kubectl proxy
 ```
 
-... and open dashboard proxy URL:
+Open URL: http://localhost:8001/api/v1/namespaces/kube-system/services/http:kubernetes-dashboard:http/proxy
 
-* http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:https/proxy
 
-... and when prompted, choose "Token" login method and enter the token obtained from the previous step.
+### Obtain Dashboard Login Token
+
+If the login token is ever needed, it can be obtained via this command:
+
+```
+$ kubectl describe secret $(kubectl get serviceaccount kubernetes-dashboard -o jsonpath="{.secrets[0].name}" --namespace kube-system) --namespace kube-system
+```

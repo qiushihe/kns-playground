@@ -9,7 +9,7 @@ Edit `./monitoring/custom-values.yaml` and update configurations as necessary.
 ## Install Prometheus Operator with Helm
 
 ```
-$ helm install --namespace monitoring --name prometheus-operator -f ./custom-values/prometheus-operator.yaml stable/prometheus-operator
+$ helm install --namespace monitoring --name prometheus-operator -f ./custom-values/prometheus-operator.yml stable/prometheus-operator
 ```
 
 ... this command may take a while to run and it will install, among other things:
@@ -28,10 +28,10 @@ $ kubectl --namespace monitoring get pods -l "release=prometheus-operator"
 **Grafana**
 
 ```
-$ kubectl port-forward -n monitoring svc/prometheus-operator-grafana 8000:80
+$ kubectl port-forward -n monitoring svc/prometheus-operator-grafana 8080:80
 ```
 
-Open URL: http://localhost:8000
+Open URL: http://localhost:8080
 
 **Prometheus**
 
