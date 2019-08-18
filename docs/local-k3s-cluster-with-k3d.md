@@ -1,4 +1,4 @@
-# Create Local k3s Cluster with k3d
+# Local k3s Cluster with k3d
 
 Download `k3d` CLI binary from: https://github.com/rancher/k3d/releases
 

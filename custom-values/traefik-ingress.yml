@@ -1,0 +1,13 @@
+fullnameOverride: traefik-ingress
+
+serviceType: NodePort
+
+kubernetes:
+  ingressClass: traefik
+
+dashboard:
+  enabled: true
+  serviceType: ClusterIP
+
+rbac:
+  enabled: true

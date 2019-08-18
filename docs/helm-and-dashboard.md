@@ -1,4 +1,4 @@
-# Install Helm and Dashboard
+# Helm and Dashboard
 
 ## Install Helm
 

@@ -6,5 +6,5 @@ controller:
   service:
     type: ClusterIP
 
-# defaultBackend:
-#   enabled: false
+defaultBackend:
+  enabled: false

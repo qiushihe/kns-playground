@@ -1,4 +1,4 @@
-# Install Prometheus Operator and Loki
+# Prometheus Operator and Loki
 
 For more info, see: https://www.digitalocean.com/community/tutorials/how-to-set-up-digitalocean-kubernetes-cluster-monitoring-with-helm-and-prometheus-operator
 

@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-second
+  name: hello-first
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-second
+      app: hello-first
   template:
     metadata:
       labels:
-        app: hello-second
+        app: hello-first
     spec:
       containers:
       - name: hello-kubernetes
@@ -19,18 +19,4 @@ spec:
         - containerPort: 8080
         env:
         - name: MESSAGE
-          value: Hello from the second deployment!
-
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: hello-second
-spec:
-  type: ClusterIP
-  ports:
-  - port: 80
-    targetPort: 8080
-  selector:
-    app: hello-second
+          value: Hello from the first deployment!

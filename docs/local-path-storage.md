@@ -1,4 +1,4 @@
-# Setup Local Path Storage
+# Local Path Storage
 
 For more info, see: https://github.com/rancher/local-path-provisioner
 
