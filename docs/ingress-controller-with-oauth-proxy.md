@@ -1,6 +1,10 @@
 # Ingress Controller with OAuth Proxy
 
-TODO: Figure out how the fuck to make auth-forwarding work with k3s/k3d
+TODO:
+
+* Figure out how the fuck to make auth-forwarding work with k3s/k3d
+* https://github.com/pusher/oauth2_proxy/issues/73
+* https://github.com/pusher/oauth2_proxy/issues/46
 
 ## Ingress Controller
 
