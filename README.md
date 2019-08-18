@@ -8,3 +8,4 @@ Playground code/examples/notes for setting up various [k8s](https://kubernetes.i
 * [Install Helm and Dashboard](./docs/install-helm-and-dashboard.md)
 * [Setup Local Path Storage](./docs/setup-local-path-storage.md)
 * [Install Prometheus Operator and Loki](./docs/install-prometheus-operator-and-loki.md)
+* [Setup Ingress Controller with OAuth Proxy](./docs/setup-ingress-controller-with-oauth-proxy.md)

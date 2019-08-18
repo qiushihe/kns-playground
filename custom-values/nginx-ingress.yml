@@ -1,0 +1,10 @@
+fullnameOverride: nginx-ingress
+
+controller:
+  kind: Deployment
+
+  service:
+    type: ClusterIP
+
+# defaultBackend:
+#   enabled: false
