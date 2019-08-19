@@ -27,7 +27,7 @@ $ kubectl create -f ./local-path-storage/provisioner.yml
 Create a example PVC:
 
 ```
-$ kubectl create -f ./local-path-storage/example/pvc.yml
+$ kubectl create -f ./manifests/local-path-storage/test-pvc.yml
 ```
 
 ... since we're using local-path-storage provisioner, the persistent volume inside Kubernetes will not be created until it's mounted (and the persistent volume claim would also remain in "pending" status).
@@ -35,7 +35,7 @@ $ kubectl create -f ./local-path-storage/example/pvc.yml
 Create a example pod:
 
 ```
-$ kubectl create -f ./local-path-storage/example/pod.yml
+$ kubectl create -f ./manifests/local-path-storage/test-pod.yml
 ```
 
 ... and write something to the Local Path Storage PVC backed volume:
